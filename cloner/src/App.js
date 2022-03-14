@@ -33,8 +33,9 @@ function App() {
                 </select>
             </ToggleInputs>
 
-            <Spy prevInputRef={prevInputRef}>
+            <Spy>
                 <input
+                    ref={prevInputRef}
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}

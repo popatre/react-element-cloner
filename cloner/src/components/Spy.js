@@ -1,10 +1,10 @@
 import React, { cloneElement } from "react";
 
-export default function Spy({ children, prevInputRef }) {
+export default function Spy({ children }) {
     const childrenArray = React.Children.toArray(children);
 
     const cloned = childrenArray.map((child) => {
-        console.log(prevInputRef.current);
+        console.log(child.ref.current);
         return child;
     });
 
