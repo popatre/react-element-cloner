@@ -3,8 +3,17 @@ import "./App.css";
 import Food from "./components/Food";
 import Breakfast from "./components/Breakfast";
 import ToggleInputs from "./components/ToggleInputs";
+import Spy from "./components/Spy";
+import { useState, useRef, useEffect } from "react";
 
 function App() {
+    const [input, setInput] = useState("start");
+    const prevInputRef = useRef();
+
+    useEffect(() => {
+        prevInputRef.current = input;
+    }, [input]);
+
     return (
         <div className="App">
             <h1>Hello</h1>
@@ -23,6 +32,14 @@ function App() {
                     <option>hilarious</option>
                 </select>
             </ToggleInputs>
+
+            <Spy prevInputRef={prevInputRef}>
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                />
+            </Spy>
         </div>
     );
 }
