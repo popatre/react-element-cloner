@@ -5,7 +5,7 @@ import Breakfast from "./components/Breakfast";
 import ToggleInputs from "./components/ToggleInputs";
 import Spy from "./components/Spy";
 import { useState, useRef, useEffect } from "react";
-
+import DeepRename from "./components/Deeprename";
 function App() {
     const [input, setInput] = useState("start");
     const prevInputRef = useRef();
@@ -41,6 +41,18 @@ function App() {
                     onChange={(e) => setInput(e.target.value)}
                 />
             </Spy>
+
+            <DeepRename message="gotcha!">
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <p>change me!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </DeepRename>
         </div>
     );
 }
