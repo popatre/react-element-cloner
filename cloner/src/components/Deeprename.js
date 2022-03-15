@@ -5,12 +5,10 @@ export default function Deeprename({ children, message }) {
 
     function iterator(obj) {
         let result = "";
-        let count = 0;
         if (typeof obj.props.children === "object") {
             return iterator(obj.props.children);
         } else {
             result = obj;
-            console.log(result);
 
             return cloneElement(result, { children: message });
         }
