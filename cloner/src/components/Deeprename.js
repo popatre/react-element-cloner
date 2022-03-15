@@ -9,7 +9,6 @@ export default function Deeprename({ children, message }) {
             return iterator(obj.props.children);
         } else {
             result = obj;
-
             return cloneElement(result, { children: message });
         }
     }
