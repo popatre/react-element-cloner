@@ -3,20 +3,16 @@ import React, { cloneElement } from "react";
 export default function Deeprename({ children, message }) {
     const childrenArray = React.Children.toArray(children);
 
-    function iterator(obj) {
-        let result = "";
-        if (typeof obj.props.children === "object") {
-            return iterator(obj.props.children);
+    function iterator(childObj) {
+        if (typeof childObj.props.children === "object") {
+            return iterator(childObj.props.children);
         } else {
-            result = obj;
-            return cloneElement(result, { children: message });
+            return cloneElement(childObj, { children: message });
         }
     }
 
     const cloned = childrenArray.map((child) => {
-        const string = iterator(child);
-
-        return string;
+        return iterator(child);
     });
 
     return <div>{cloned}</div>;
